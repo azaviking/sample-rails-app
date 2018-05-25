@@ -2,12 +2,12 @@ version: '3'
 services:
    db:
      image: habitat/postgresql
-     volumes:       
+     volumes:
        - "./updated_config.toml:/updated_config.toml"
    railsapp:
-      image: <myorg>/sample-rails-app
+      image: azaviking/sample-rails-app
       ports:
        - 8000:8000
-      links: 
+      links:
        - db
-      command: --peer db --bind database:postgresql.default 
+      command: --peer db --bind database:postgresql.default
